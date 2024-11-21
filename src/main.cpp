@@ -6,21 +6,24 @@
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
 
-int main() {
+int main()
+{
     sf::RenderWindow window(sf::VideoMode({640, 480}), "ImGui + SFML = <3");
     window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
 
     sf::Clock deltaClock;
-    while (window.isOpen()) {
+    while (window.isOpen())
+    {
         // Proccess Window Events (Close,Resize,etc...)
         sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.Closed) {
-                ImGui::SFML::Shutdown();
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
                 window.close();
             }
-            
+
             ImGui::SFML::ProcessEvent(window, event);
         }
 
