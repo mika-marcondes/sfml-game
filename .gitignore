@@ -1,0 +1,5 @@
+*.o
+*.d
+*.ini
+sfmlgame
+bin/font
